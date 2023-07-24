@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LetsBeActivity">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/next" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="200dp"
+        android:textColor="@color/black"
+        android:text="@string/lets"
+        android:textStyle="bold"
+        android:textSize="@dimen/_25ssp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/class_industri"
+        android:gravity="center"
+        android:layout_marginTop="250dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="530dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/lets_start"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>
