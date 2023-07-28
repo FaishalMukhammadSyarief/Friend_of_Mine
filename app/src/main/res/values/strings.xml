@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Friend of Mine</string>
+    <string name="msg_error">Fill Blank Form</string>
 </resources>
