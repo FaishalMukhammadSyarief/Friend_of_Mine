@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.setAdapter = RvAdapter(listFriend) {data ->
-            val toDetail = Intent(this, AddActivity::class.java).apply {
+            val toDetail = Intent(this, DetailActivity::class.java).apply {
                 putExtra("name", data.name)
                 putExtra("school", data.school)
                 putExtra("id", data.id)
