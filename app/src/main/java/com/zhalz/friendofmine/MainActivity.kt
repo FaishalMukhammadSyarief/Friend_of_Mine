@@ -1,5 +1,6 @@
 package com.zhalz.friendofmine
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,17 +20,12 @@ class MainActivity : AppCompatActivity() {
 
     private val listFriend = ArrayList<FriendEntity>()
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         binding.activity = this
-
-        /*val noDatabase = arrayListOf(
-            FriendEntity("Faishal Mukhammad", "SMK N 1 Purwokerto"),
-            FriendEntity("Fabe Bustanil", "SMK N 1 Purwokerto"),
-            FriendEntity("Alfred Aisytiens", "SMK N 1 Purwokerto")
-        )*/
 
         myDatabase = MyDatabase.getDatabase(this)
 
@@ -41,7 +37,8 @@ class MainActivity : AppCompatActivity() {
                 adapter?.notifyItemInserted(0)
             }
         }
-        binding.setAdapter = RvAdapter(listFriend) {data ->
+
+        adapter = RvAdapter(listFriend) {data ->
             val toDetail = Intent(this, DetailActivity::class.java).apply {
                 putExtra("name", data.name)
                 putExtra("school", data.school)
@@ -49,6 +46,9 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(toDetail)
         }
+
+        binding.setAdapter = adapter
+
     }
 
     fun toAdd() {
