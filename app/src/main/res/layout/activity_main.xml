@@ -14,7 +14,7 @@
             type="com.zhalz.friendofmine.MainActivity" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -34,6 +34,8 @@
             android:layout_height="wrap_content"
             android:contentDescription="fab"
             android:layout_gravity="center_horizontal"
-            android:onClick="@{() -> activity.toAdd()}"/>
-    </LinearLayout>
+            android:onClick="@{() -> activity.toAdd()}"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 </layout>

@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var roomDatabase: MyDatabase
+    private lateinit var myDatabase: MyDatabase
 
     private var adapter: RvAdapter? = null
 
@@ -25,30 +25,34 @@ class MainActivity : AppCompatActivity() {
 
         binding.activity = this
 
-        /*val friendsList = arrayListOf(
-            FriendEntity("Faishal Mukhammad", "SMKN 1 Purwokerto"),
-            FriendEntity("Fabe Bustanil", "SMKN 1 Purwokerto"),
-            FriendEntity("Alfred Aisytiens", "SMKN 1 Purwokerto")
+        /*val noDatabase = arrayListOf(
+            FriendEntity("Faishal Mukhammad", "SMK N 1 Purwokerto"),
+            FriendEntity("Fabe Bustanil", "SMK N 1 Purwokerto"),
+            FriendEntity("Alfred Aisytiens", "SMK N 1 Purwokerto")
         )*/
 
-
-        roomDatabase = MyDatabase.getDatabase(this)
+        myDatabase = MyDatabase.getDatabase(this)
 
         lifecycleScope.launch {
-            roomDatabase.friendDao().getAll().collect {
+            myDatabase.friendDao().getAll().collect {
                 listFriend.clear()
                 adapter?.notifyDataSetChanged()
                 listFriend.addAll(it)
                 adapter?.notifyItemInserted(0)
             }
         }
-
-        binding.setAdapter = RvAdapter(listFriend)
-
+        binding.setAdapter = RvAdapter(listFriend) {data ->
+            val toDetail = Intent(this, AddActivity::class.java).apply {
+                putExtra("name", data.name)
+                putExtra("school", data.school)
+                putExtra("id", data.id)
+            }
+            startActivity(toDetail)
+        }
     }
 
     fun toAdd() {
-        val toDetail = Intent(this, AddActivity::class.java)
-        startActivity(toDetail)
+        val toAdd = Intent(this, AddActivity::class.java)
+        startActivity(toAdd)
     }
 }
