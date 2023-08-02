@@ -10,7 +10,7 @@
             type="com.zhalz.friendofmine.adapter.RvAdapter" />
 
         <variable
-            name="activity"
+            name="access"
             type="com.zhalz.friendofmine.MainActivity" />
     </data>
 
@@ -27,15 +27,18 @@
             android:layout_gravity="center"
             android:adapter="@{setAdapter}"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="fab"
-            android:layout_gravity="center_horizontal"
-            android:onClick="@{() -> activity.toAdd()}"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/_10sdp"
+            android:contentDescription="@string/fab"
+            android:onClick="@{() -> access.toAdd()}"
+            tools:ignore="ImageContrastCheck" />
     </RelativeLayout>
 </layout>

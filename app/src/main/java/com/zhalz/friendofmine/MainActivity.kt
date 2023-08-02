@@ -16,8 +16,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var myDatabase: MyDatabase
 
-    private var adapter: RvAdapter? = null
-
     private val listFriend = ArrayList<FriendEntity>()
 
     @SuppressLint("NotifyDataSetChanged")
@@ -25,20 +23,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.activity = this
+        binding.access = this
 
         myDatabase = MyDatabase.getDatabase(this)
 
         lifecycleScope.launch {
             myDatabase.friendDao().getAll().collect {
                 listFriend.clear()
-                adapter?.notifyDataSetChanged()
+                binding.recycler.adapter?.notifyDataSetChanged()
                 listFriend.addAll(it)
-                adapter?.notifyItemInserted(0)
+                binding.recycler.adapter?.notifyItemInserted(0)
             }
         }
 
-        adapter = RvAdapter(listFriend) {data ->
+        binding.setAdapter = RvAdapter(listFriend) {data ->
             val toDetail = Intent(this, DetailActivity::class.java).apply {
                 putExtra("name", data.name)
                 putExtra("school", data.school)
@@ -46,8 +44,6 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(toDetail)
         }
-
-        binding.setAdapter = adapter
 
     }
 

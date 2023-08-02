@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="access"
+            type="com.zhalz.friendofmine.DetailActivity" />
+
+        <variable
             name="name"
             type="String" />
 
@@ -26,7 +30,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_name"
             android:autofillHints="username"
-            android:hint="nama"
+            android:hint="@string/nama2"
             android:text="@={name}"
             android:padding="@dimen/_10sdp"
             android:inputType="text"
@@ -43,7 +47,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_school"
             android:autofillHints="username"
-            android:hint="sekolah"
+            android:hint="@string/sekolah2"
             android:text="@={school}"
             android:padding="@dimen/_10sdp"
             android:inputType="text"
@@ -54,6 +58,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_name"
             tools:ignore="VisualLintTextFieldSize" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                tools:ignore="ButtonStyle,VisualLintButtonSize"
+                />
+
+            <Button
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/red"
+                android:text="@string/delete"
+                android:onClick="@{() -> access.onDeleteClick()}"
+                tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

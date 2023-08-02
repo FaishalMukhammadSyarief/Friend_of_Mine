@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_name"
             android:autofillHints="username"
-            android:hint="nama"
+            android:hint="@string/nama"
             android:text="@={activity.name}"
             android:padding="@dimen/_10sdp"
             android:inputType="text"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_school"
             android:autofillHints="username"
-            android:hint="sekolah"
+            android:hint="@string/sekolah"
             android:text="@={activity.school}"
             android:padding="@dimen/_10sdp"
             android:inputType="text"
@@ -52,11 +52,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_save"
             android:onClick="@{() -> activity.saveNewFriend()}"
-            android:text="save"
+            android:text="@string/save"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="VisualLintButtonSize" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
