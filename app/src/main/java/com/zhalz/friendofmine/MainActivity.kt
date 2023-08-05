@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
                 binding.recycler.adapter?.notifyItemInserted(0)
             }
         }
-
         binding.setAdapter = RvAdapter(listFriend) {data ->
             val toDetail = Intent(this, DetailActivity::class.java).apply {
                 putExtra("name", data.name)
@@ -51,4 +50,5 @@ class MainActivity : AppCompatActivity() {
         val toAdd = Intent(this, AddActivity::class.java)
         startActivity(toAdd)
     }
+
 }

@@ -24,10 +24,10 @@ class AddActivity : AppCompatActivity() {
         binding.activity = this
 
         myDatabase = MyDatabase.getDatabase(this)
+
     }
 
     fun saveNewFriend() {
-
         if (name.isEmpty() || school.isEmpty()) {
             Toast.makeText(this, getString(R.string.msg_error), Toast.LENGTH_SHORT).show()
         }
@@ -36,7 +36,7 @@ class AddActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 myDatabase.friendDao().insert(newFriend)
-                Toast.makeText(this@AddActivity, "Succeed", Toast . LENGTH_SHORT).show()
+                Toast.makeText(this@AddActivity, "Succeed", Toast.LENGTH_SHORT).show()
                 finish()
             }
         }

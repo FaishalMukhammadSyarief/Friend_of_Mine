@@ -9,14 +9,6 @@
             name="access"
             type="com.zhalz.friendofmine.DetailActivity" />
 
-        <variable
-            name="name"
-            type="String" />
-
-        <variable
-            name="school"
-            type="String" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,15 +18,15 @@
         tools:context=".AddActivity">
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_name"
             android:autofillHints="username"
-            android:hint="@string/nama2"
-            android:text="@={name}"
-            android:padding="@dimen/_10sdp"
-            android:inputType="text"
             android:enabled="false"
+            android:hint="@string/nama2"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:text="@={access.name}"
             android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,15 +35,15 @@
             tools:ignore="VisualLintTextFieldSize" />
 
         <EditText
+            android:id="@+id/et_school"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_school"
             android:autofillHints="username"
-            android:hint="@string/sekolah2"
-            android:text="@={school}"
-            android:padding="@dimen/_10sdp"
-            android:inputType="text"
             android:enabled="false"
+            android:hint="@string/sekolah2"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:text="@={access.school}"
             android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,18 +52,31 @@
             tools:ignore="VisualLintTextFieldSize" />
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="3"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="13dp">
 
             <Button
-                android:layout_weight="2"
+                android:id="@+id/btn_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:onClick="@{() -> access.onEditClick()}"
                 android:text="@string/edit"
-                tools:ignore="ButtonStyle,VisualLintButtonSize"
-                />
+                tools:ignore="ButtonStyle,VisualLintButtonSize" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:onClick="@{() -> access.saveUpdateFriend()}"
+                android:text="@string/save"
+                android:visibility="gone"
+                tools:ignore="ButtonStyle,VisualLintButtonSize" />
 
             <Button
                 style="?android:attr/buttonBarButtonStyle"
@@ -79,8 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/red"
-                android:text="@string/delete"
                 android:onClick="@{() -> access.onDeleteClick()}"
+                android:text="@string/delete"
                 tools:ignore="VisualLintButtonSize,TextContrastCheck" />
 
         </LinearLayout>

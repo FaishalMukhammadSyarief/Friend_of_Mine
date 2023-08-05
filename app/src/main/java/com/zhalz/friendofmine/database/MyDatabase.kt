@@ -18,6 +18,7 @@ abstract class MyDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: MyDatabase? = null
 
+        @Synchronized
         fun getDatabase(context: Context): MyDatabase {
             val tmpInstance = INSTANCE
             if(tmpInstance == null) {

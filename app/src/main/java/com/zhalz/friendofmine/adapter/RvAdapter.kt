@@ -11,8 +11,7 @@ class RvAdapter(private val items: ArrayList<FriendEntity>, val onClickItem : (F
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
-            RvItemBinding.inflate( LayoutInflater.from(parent.context), parent, false
-            )
+            RvItemBinding.inflate( LayoutInflater.from(parent.context), parent, false)
         )
     }
 

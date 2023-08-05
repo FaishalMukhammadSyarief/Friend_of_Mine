@@ -4,9 +4,11 @@
     <string name="fab">fab</string>
     <string name="sekolah">sekolah</string>
     <string name="nama">nama</string>
-    <string name="save">save</string>
+    <string name="save">Save</string>
     <string name="nama2">nama</string>
     <string name="sekolah2">sekolah</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="image">image</string>
+    <string name="search">Search</string>
 </resources>

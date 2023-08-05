@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class FriendEntity(
     var name: String,
-    var school: String
+    var school: String,
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

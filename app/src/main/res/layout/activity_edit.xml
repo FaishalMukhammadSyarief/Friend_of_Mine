@@ -6,8 +6,16 @@
     <data>
 
         <variable
-            name="activity"
-            type="com.zhalz.friendofmine.AddActivity" />
+            name="access"
+            type="com.zhalz.friendofmine.EditActivity" />
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="school"
+            type="String" />
 
     </data>
 
@@ -18,14 +26,15 @@
         tools:context=".AddActivity">
 
         <EditText
-            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/et_name"
             android:autofillHints="username"
-            android:hint="@string/nama"
-            android:inputType="text"
+            android:hint="@string/nama2"
+            android:text="@={access.name}"
             android:padding="@dimen/_10sdp"
-            android:text="@={activity.name}"
+            android:inputType="text"
+            android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +46,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_school"
             android:autofillHints="username"
-            android:hint="@string/sekolah"
-            android:text="@={activity.school}"
+            android:hint="@string/sekolah2"
+            android:text="@={access.school}"
             android:padding="@dimen/_10sdp"
             android:inputType="text"
+            android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btn_save"
-            android:onClick="@{() -> activity.saveNewFriend()}"
+            android:onClick="@{() -> access.saveUpdateFriend()}"
             android:text="@string/save"
 
             app:layout_constraintBottom_toBottomOf="parent"

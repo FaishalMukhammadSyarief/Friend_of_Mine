@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.zhalz.friendofmine.database.FriendEntity
@@ -19,6 +20,10 @@ class DetailActivity : AppCompatActivity() {
 
     private var dataFriend: FriendEntity? = null
 
+    var name = ""
+    var school = ""
+    var idFriend = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
@@ -27,19 +32,17 @@ class DetailActivity : AppCompatActivity() {
 
         myDatabase = MyDatabase.getDatabase(this)
 
-        val name = intent.getStringExtra("name") ?: ""
-        val school = intent.getStringExtra("school") ?: ""
-        val friendId = intent.getIntExtra("id", 0)
-
-        binding.name = name
-        binding.school = school
+        //get data
+        name = intent.getStringExtra("name") ?: ""
+        school = intent.getStringExtra("school") ?: ""
+        idFriend = intent.getIntExtra("id", 0)
 
         dataFriend = FriendEntity(name, school).apply {
-            id = friendId
+            id = idFriend
         }
-
     }
 
+    //delete
     fun onDeleteClick() {
         val adBuilder = AlertDialog.Builder(this)
 
@@ -53,15 +56,37 @@ class DetailActivity : AppCompatActivity() {
                     dialog.dismiss()
                     Toast.makeText(this@DetailActivity, "Removed", Toast.LENGTH_SHORT).show()
                     finish()
-//                    onBackPressedDispatcher.onBackPressed()
                 }
             }
         }
-
         adBuilder.setNegativeButton("Cancel") { dialog: DialogInterface, _: Int ->
             dialog.dismiss()
         }
-
         adBuilder.create().show()
+    }
+
+    //edit
+    fun saveUpdateFriend() {
+        val updatedFriend = FriendEntity(name, school).apply {
+            id = idFriend
+        }
+
+        lifecycleScope.launch {
+            myDatabase.friendDao().update(updatedFriend)
+            Toast.makeText(this@DetailActivity, "Updated", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+    }
+
+    //edit
+    fun onEditClick() {
+        binding.etName.isEnabled = true
+        binding.etSchool.isEnabled = true
+
+        binding.btnEdit.isVisible = false
+        binding.btnEdit.isEnabled = false
+
+        binding.btnSave.isVisible = true
+
     }
 }
