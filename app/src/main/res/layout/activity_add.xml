@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="activity"
+            name="access"
             type="com.zhalz.friendofmine.AddActivity" />
 
     </data>
@@ -17,19 +17,27 @@
         android:padding="@dimen/_10sdp"
         tools:context=".AddActivity">
 
+        <ImageView
+            android:id="@+id/iv_photoAdd"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="username"
             android:hint="@string/name"
+            android:layout_marginTop="15dp"
             android:inputType="text"
             android:padding="@dimen/_10sdp"
-            android:text='@{activity.name}'
+            android:text='@{access.name}'
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_photoAdd"
             tools:ignore="VisualLintTextFieldSize" />
 
         <EditText
@@ -40,18 +48,33 @@
             android:hint="@string/school"
             android:inputType="text"
             android:padding="@dimen/_10sdp"
-            android:text='@{activity.school}'
+            android:text='@{access.school}'
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_name"
             tools:ignore="VisualLintTextFieldSize" />
 
+        <EditText
+            android:id="@+id/et_bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:hint="@string/bio"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:text='@{access.bio}'
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_school"
+            tools:ignore="VisualLintTextFieldSize" />
+
         <Button
             android:id="@+id/btn_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> activity.saveNewFriend()}"
+            android:onClick="@{() -> access.saveNewFriend()}"
             android:text="@string/save"
 
             app:layout_constraintBottom_toBottomOf="parent"

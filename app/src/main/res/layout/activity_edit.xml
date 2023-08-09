@@ -7,14 +7,6 @@
         <variable
             name="access"
             type="com.zhalz.friendofmine.EditActivity" />
-
-<!--        <variable-->
-<!--            name="name"-->
-<!--            type="String" />-->
-
-<!--        <variable-->
-<!--            name="school"-->
-<!--            type="String" />-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,20 +15,28 @@
         android:padding="@dimen/_10sdp"
         tools:context=".AddActivity">
 
+        <ImageView
+            android:id="@+id/iv_photoEdit"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_name"
             android:autofillHints="username"
             android:hint="@string/name"
-            android:text="@={access.name}"
+            android:layout_marginTop="15dp"
+            android:text='@{access.name}'
             android:padding="@dimen/_10sdp"
             android:inputType="text"
             android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_photoEdit"
             tools:ignore="VisualLintTextFieldSize" />
 
         <EditText
@@ -45,7 +45,7 @@
             android:id="@+id/et_school"
             android:autofillHints="username"
             android:hint="@string/school"
-            android:text="@={access.school}"
+            android:text='@{access.school}'
             android:padding="@dimen/_10sdp"
             android:inputType="text"
             android:textColor="@color/black"
@@ -59,12 +59,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btn_save"
-            android:onClick="@{() -> access.saveUpdateFriend()}"
+            android:onClick='@{() -> access.saveUpdateFriend()}'
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="VisualLintButtonSize" />
+
+        <EditText
+            android:id="@+id/et_bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:enabled="false"
+            android:hint="@string/bio"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:text='@{access.bio}'
+            android:textColor="@color/black"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_school"
+            tools:ignore="VisualLintTextFieldSize" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

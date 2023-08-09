@@ -11,4 +11,7 @@
     <string name="delete">delete</string>
     <string name="school">school</string>
     <string name="name">name</string>
+    <string name="bio">Bio</string>
+    <string name="msg_error">Fill Blank Form</string>
+    <string name="photo">photo</string>
 </resources>

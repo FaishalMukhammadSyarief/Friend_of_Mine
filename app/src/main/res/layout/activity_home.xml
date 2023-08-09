@@ -10,7 +10,7 @@
 
         <variable
             name="access"
-            type="com.zhalz.friendofmine.MainActivity" />
+            type="com.zhalz.friendofmine.HomeActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:adapter="@{setAdapter}"
+            android:adapter='@{setAdapter}'
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

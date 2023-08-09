@@ -1,6 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -27,21 +26,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:background="@color/black"
-                ImageSrc='@{friendData.photo}'
+                android:contentDescription="@string/photo"
+                imageSrc='@{friendData.photo}'
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text='@{friendData.name}'
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="163dp"/>
 
                 <TextView
+                    android:id="@+id/school"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text='@{friendData.school}'
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="193dp"/>
