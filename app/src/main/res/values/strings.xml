@@ -4,4 +4,11 @@
     <string name="lets">Lets be friend</string>
     <string name="class_industri">Kelas industri not only develop hard skills and soft skills, but we also help develop life skills according to your competence</string>
     <string name="lets_start">Lets Start</string>
+    <string name="search">Search</string>
+    <string name="fab">btn_add</string>
+    <string name="edit">edit</string>
+    <string name="save">save</string>
+    <string name="delete">delete</string>
+    <string name="school">school</string>
+    <string name="name">name</string>
 </resources>

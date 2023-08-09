@@ -1,0 +1,78 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="friendData"
+            type="com.zhalz.friendofmine.database.FriendEntity" />
+
+    </data>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_10sdp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="190dp"
+                android:layout_height="250dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="@dimen/_15sdp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/black"
+                ImageSrc='@{friendData.photo}'
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="163dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="193dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/name"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="@dimen/_16ssp"-->
+<!--                android:textStyle="bold|italic"-->
+<!--                android:text="@{friendData.name}"-->
+<!--                android:layout_marginStart="120dp"-->
+
+<!--                app:layout_constraintBottom_toTopOf="@id/school"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:ignore="VisualLintBounds" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/school"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="@dimen/_16ssp"-->
+<!--                android:text="@{friendData.school}"-->
+<!--                android:layout_marginStart="120dp"-->
+
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/name"-->
+<!--                tools:ignore="VisualLintBounds" />-->
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+</layout>
