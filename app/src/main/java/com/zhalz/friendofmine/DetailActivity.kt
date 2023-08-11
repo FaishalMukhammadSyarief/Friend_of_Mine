@@ -1,13 +1,16 @@
 package com.zhalz.friendofmine
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import com.zhalz.friendofmine.bitmap.BitmapHelper
 import com.zhalz.friendofmine.database.FriendEntity
 import com.zhalz.friendofmine.database.MyDatabase
 import com.zhalz.friendofmine.databinding.ActivityDetailBinding
@@ -32,16 +35,22 @@ class DetailActivity : AppCompatActivity() {
 
         binding.access = this
 
+        binding.ivPhotoDetail.background = null
+
         myDatabase = MyDatabase.getDatabase(this)
 
         //get data
-        photo = intent.getStringExtra("photo") ?: ""
         name = intent.getStringExtra("name") ?: ""
         school = intent.getStringExtra("school") ?: ""
         bio = intent.getStringExtra("bio") ?: ""
+        photo = intent.getStringExtra("photo") ?: ""
         idFriend = intent.getIntExtra("id", 0)
 
-        dataFriend = FriendEntity(photo, name, school, bio).apply {
+        val bitmap = BitmapHelper().stringToBitmap(this, photo)
+        Log.d("TestBitmap", "DATA_BITMAP : $bitmap")
+        binding.ivPhotoDetail.setImageBitmap(bitmap)
+
+        dataFriend = FriendEntity(name, school, bio, photo).apply {
             id = idFriend
         }
     }
@@ -71,7 +80,7 @@ class DetailActivity : AppCompatActivity() {
 
     //edit
     fun saveUpdateFriend() {
-        val updatedFriend = FriendEntity(photo, name, school, bio).apply {
+        val updatedFriend = FriendEntity(name, school, bio, photo).apply {
             id = idFriend
         }
 
@@ -84,15 +93,14 @@ class DetailActivity : AppCompatActivity() {
 
     //edit
     fun onEditClick() {
-        binding.ivPhotoDetail.isEnabled = true
-        binding.etName.isEnabled = true
-        binding.etSchool.isEnabled = true
-        binding.etBio.isEnabled = true
-
-        binding.btnEdit.isVisible = false
-        binding.btnEdit.isEnabled = false
-
-        binding.btnSave.isVisible = true
-
+        val toEdit = Intent(this, EditActivity::class.java).apply {
+            putExtra("name", name)
+            putExtra("school", school)
+            putExtra("bio", bio)
+            putExtra("photo", photo)
+            putExtra("id", idFriend)
+        }
+        startActivity(toEdit)
+        finish()
     }
 }

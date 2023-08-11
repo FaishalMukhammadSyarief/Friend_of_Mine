@@ -32,7 +32,6 @@
             android:text='@{access.name}'
             android:padding="@dimen/_10sdp"
             android:inputType="text"
-            android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,11 +47,26 @@
             android:text='@{access.school}'
             android:padding="@dimen/_10sdp"
             android:inputType="text"
-            android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_name"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/et_bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:enabled="false"
+            android:hint="@string/bio"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:text='@{access.bio}'
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_school"
             tools:ignore="VisualLintTextFieldSize" />
 
         <Button
@@ -65,23 +79,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="VisualLintButtonSize" />
-
-        <EditText
-            android:id="@+id/et_bio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="username"
-            android:enabled="false"
-            android:hint="@string/bio"
-            android:inputType="text"
-            android:padding="@dimen/_10sdp"
-            android:text='@{access.bio}'
-            android:textColor="@color/black"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_school"
-            tools:ignore="VisualLintTextFieldSize" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

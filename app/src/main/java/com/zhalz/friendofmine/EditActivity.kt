@@ -39,7 +39,8 @@ class EditActivity : AppCompatActivity() {
     var photo = ""
     var name = ""
     var school = ""
-    var bio =""
+    var bio = ""
+    var idFriend = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,11 +48,15 @@ class EditActivity : AppCompatActivity() {
 
         binding.access = this
 
+        binding.ivPhotoEdit.background = null
+
         myDatabase = MyDatabase.getDatabase(this)
 
-        name = intent.getStringExtra("name2") ?: ""
-        school = intent.getStringExtra("school2") ?: ""
-        bio = intent.getStringExtra("bio2") ?: ""
+        name = intent.getStringExtra("name") ?: ""
+        school = intent.getStringExtra("school") ?: ""
+        bio = intent.getStringExtra("bio") ?: ""
+        photo = intent.getStringExtra("photo") ?: ""
+        idFriend = intent.getIntExtra("id", 0)
 
         photoFile = getPhotoFileUri(photoName)
 
@@ -175,7 +180,7 @@ class EditActivity : AppCompatActivity() {
 
     private fun openCamera() {
         val fileProvider =
-            FileProvider.getUriForFile(this, "com.shzh.fileprovider", photoFile)
+            FileProvider.getUriForFile(this, "com.zhalz.friendofmine.fileProvider", photoFile)
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
             putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
         }

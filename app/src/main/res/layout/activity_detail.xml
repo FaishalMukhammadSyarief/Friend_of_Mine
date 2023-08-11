@@ -111,6 +111,7 @@
                 android:backgroundTint="@color/red"
                 android:onClick="@{() -> access.onDeleteClick()}"
                 android:text="@string/delete"
+                android:textColor="@color/black"
                 tools:ignore="VisualLintButtonSize,TextContrastCheck" />
 
         </LinearLayout>
