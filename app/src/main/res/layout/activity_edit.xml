@@ -9,14 +9,6 @@
             name="access"
             type="com.zhalz.friendofmine.EditActivity" />
 
-        <variable
-            name="name"
-            type="String" />
-
-        <variable
-            name="school"
-            type="String" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,42 +17,45 @@
         android:padding="@dimen/_10sdp"
         tools:context=".AddActivity">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <!-- Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_name"
-            android:autofillHints="username"
-            android:hint="@string/nama2"
-            android:text="@={access.name}"
-            android:padding="@dimen/_10sdp"
-            android:inputType="text"
-            android:textColor="@color/black"
+            style="@style/editTextName"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="VisualLintTextFieldSize" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="30"
+                android:text="@={access.name}"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_school"
-            android:autofillHints="username"
-            android:hint="@string/sekolah2"
-            android:text="@={access.school}"
-            android:padding="@dimen/_10sdp"
-            android:inputType="text"
-            android:textColor="@color/black"
+            style="@style/editTextSchool"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_name"
-            tools:ignore="VisualLintTextFieldSize" />
+            app:layout_constraintTop_toBottomOf="@+id/et_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={access.school}"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_save"
             android:onClick="@{() -> access.saveUpdateFriend()}"
             android:text="@string/save"
 

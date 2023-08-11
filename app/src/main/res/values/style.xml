@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="editTextName">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="startIconDrawable">@drawable/ic_person</item>
+        <item name="counterEnabled">true</item>
+        <item name="counterMaxLength">30</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="android:hint">@string/name</item>
+    </style>
+
+    <style name="editTextSchool">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="startIconDrawable">@drawable/ic_school</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="android:hint">@string/school</item>
+    </style>
+    
+</resources>
