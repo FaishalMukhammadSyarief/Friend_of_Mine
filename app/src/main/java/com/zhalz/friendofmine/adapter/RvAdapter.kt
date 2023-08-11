@@ -2,7 +2,9 @@ package com.zhalz.friendofmine.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.zhalz.friendofmine.R
 import com.zhalz.friendofmine.database.FriendEntity
 import com.zhalz.friendofmine.databinding.RvItemBinding
 
@@ -11,7 +13,7 @@ class RvAdapter(private val items: ArrayList<FriendEntity>, val onClickItem : (F
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
-            RvItemBinding.inflate( LayoutInflater.from(parent.context), parent, false)
+            DataBindingUtil.inflate(LayoutInflater.from(parent.context),R.layout.rv_item, parent, false)
         )
     }
 
