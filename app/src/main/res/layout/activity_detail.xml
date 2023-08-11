@@ -17,64 +17,92 @@
         android:padding="@dimen/_10sdp"
         tools:context=".AddActivity">
 
-        <ImageView
-            android:id="@+id/iv_photoDetail"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:background="@color/black"
-            app:layout_constraintTop_toTopOf="parent" />
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
 
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:autofillHints="username"
-            android:enabled="false"
-            android:hint="@string/name"
-            android:inputType="text"
-            android:padding="@dimen/_10sdp"
-            android:text='@{access.name}'
-            android:textColor="@color/black"
-
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_photoDetail"
-            tools:ignore="VisualLintTextFieldSize" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/et_school"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="username"
-            android:enabled="false"
-            android:hint="@string/school"
-            android:inputType="text"
-            android:padding="@dimen/_10sdp"
-            android:text='@{access.school}'
-            android:textColor="@color/black"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_name"
-            tools:ignore="VisualLintTextFieldSize" />
+                <!-- Photo -->
+                <ImageView
+                    android:id="@+id/iv_photoDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_300sdp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/photo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ImageContrastCheck,VisualLintBounds" />
 
-        <EditText
-            android:id="@+id/et_bio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="username"
-            android:enabled="false"
-            android:hint="@string/bio"
-            android:inputType="text"
-            android:padding="@dimen/_10sdp"
-            android:text='@{access.bio}'
-            android:textColor="@color/black"
+                <!-- Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_name"
+                    style="@style/editTextName"
+                    android:hint="@string/name"
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_school"
-            tools:ignore="VisualLintTextFieldSize" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_photoDetail">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:maxLength="30"
+                        android:text="@={access.name}"
+                        android:textColor="@color/black"
+                        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- School -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_school"
+                    style="@style/editTextSchool"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:maxLength="30"
+                        android:text="@={access.school}"
+                        android:textColor="@color/black"
+                        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Bio -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_bio"
+                    style="@style/editTextBio"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_school">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:text="@={access.bio}"
+                        android:textColor="@color/black"
+                        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
 
         <LinearLayout
             android:id="@+id/linearLayout"

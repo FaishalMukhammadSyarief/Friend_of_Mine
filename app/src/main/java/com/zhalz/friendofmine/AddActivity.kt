@@ -158,9 +158,6 @@ class AddActivity : AppCompatActivity() {
 
 
     fun saveNewFriend() {
-        val name = binding.etName.text.trim().toString()
-        val school = binding.etSchool.text.trim().toString()
-        val bio = binding.etBio.text.trim().toString()
 
         if (name.isEmpty() || school.isEmpty() || bio.isEmpty() || photo.isEmpty()) {
             Toast.makeText(this, getString(R.string.msg_error), Toast.LENGTH_SHORT).show()
@@ -178,5 +175,4 @@ class AddActivity : AppCompatActivity() {
                 finish()
         }
     }
-
 }

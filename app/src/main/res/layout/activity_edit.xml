@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="access"
             type="com.zhalz.friendofmine.EditActivity" />
@@ -15,74 +16,97 @@
         android:padding="@dimen/_10sdp"
         tools:context=".AddActivity">
 
-        <ImageView
-            android:id="@+id/iv_photoEdit"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:scaleType="centerCrop"
-            android:background="@color/black"
-            app:layout_constraintTop_toTopOf="parent" />
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_name"
-            android:autofillHints="username"
-            android:hint="@string/name"
-            android:layout_marginTop="15dp"
-            android:text='@={access.name}'
-            android:padding="@dimen/_10sdp"
-            android:inputType="text"
-            android:textColor="@color/black"
-
+            app:layout_constraintBottom_toTopOf="@id/btn_save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_photoEdit"
-            tools:ignore="VisualLintTextFieldSize" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_school"
-            android:autofillHints="username"
-            android:hint="@string/school"
-            android:text='@={access.school}'
-            android:padding="@dimen/_10sdp"
-            android:inputType="text"
-            android:textColor="@color/black"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_name"
-            tools:ignore="VisualLintTextFieldSize" />
+                <!-- Photo -->
+                <ImageView
+                    android:id="@+id/iv_photoEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_300sdp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/photo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ImageContrastCheck,VisualLintBounds" />
+
+                <!-- Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_name"
+                    style="@style/editTextName"
+                    android:hint="@string/name"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_photoEdit">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="30"
+                        android:text="@={access.name}"
+                        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- School -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_school"
+                    style="@style/editTextSchool"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="30"
+                        android:text="@={access.school}"
+                        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Bio -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_bio"
+                    style="@style/editTextBio"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_school">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={access.bio}"
+                        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
 
         <Button
+            android:id="@+id/btn_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_save"
             android:onClick='@{() -> access.saveUpdateFriend()}'
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="VisualLintButtonSize" />
-
-        <EditText
-            android:id="@+id/et_bio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="username"
-            android:enabled="false"
-            android:hint="@string/bio"
-            android:inputType="text"
-            android:padding="@dimen/_10sdp"
-            android:text='@={access.bio}'
-            android:textColor="@color/black"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_school"
-            tools:ignore="VisualLintTextFieldSize" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

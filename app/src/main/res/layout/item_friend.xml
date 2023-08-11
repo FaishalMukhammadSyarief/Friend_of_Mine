@@ -1,5 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,75 +10,68 @@
 
     </data>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_220sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardUseCompatPadding="true">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="@dimen/_10sdp">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="190dp"
-                android:layout_height="250dp"
-                app:cardUseCompatPadding="true"
-                app:cardCornerRadius="@dimen/_15sdp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/image"
+                imageSrc="@{friendData.photo}"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:layout_weight="4"
                 android:background="@color/black"
                 android:contentDescription="@string/photo"
-                imageSrc='@{friendData.photo}'
+                android:scaleType="centerCrop"
 
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text='@{friendData.name}'
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="163dp"/>
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@{friendData.name}"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
 
-                <TextView
-                    android:id="@+id/school"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text='@{friendData.school}'
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="193dp"/>
-<!--            <TextView-->
-<!--                android:id="@+id/name"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="@dimen/_16ssp"-->
-<!--                android:textStyle="bold|italic"-->
-<!--                android:text="@{friendData.name}"-->
-<!--                android:layout_marginStart="120dp"-->
+                app:layout_constraintBottom_toTopOf="@id/school"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image"
+                tools:ignore="VisualLintBounds" />
 
-<!--                app:layout_constraintBottom_toTopOf="@id/school"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                tools:ignore="VisualLintBounds" />-->
+            <TextView
+                android:id="@+id/school"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@{friendData.school}"
 
-<!--            <TextView-->
-<!--                android:id="@+id/school"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="@dimen/_16ssp"-->
-<!--                android:text="@{friendData.school}"-->
-<!--                android:layout_marginStart="120dp"-->
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                tools:ignore="VisualLintBounds" />
 
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/name"-->
-<!--                tools:ignore="VisualLintBounds" />-->
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </layout>

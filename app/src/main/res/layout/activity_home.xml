@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="setAdapter"
             type="com.zhalz.friendofmine.adapter.RvAdapter" />
@@ -16,35 +17,38 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:padding="@dimen/_7sdp"
         tools:context=".MainActivity">
 
-        <EditText
-            android:id="@+id/et_search"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sv_border"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="name"
-            android:hint="@string/search"
-            android:inputType="text"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:padding="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+            android:elevation="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconifiedByDefault="false"
+                app:queryHint="Search Here...." />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_height="0dp"
             android:adapter='@{setAdapter}'
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_search"
-            tools:listitem="@layout/item_friend"
-            app:spanCount="2" />
+            app:layout_constraintTop_toBottomOf="@+id/sv_border"
+            app:spanCount="2"
+            tools:listitem="@layout/item_friend" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
@@ -59,5 +63,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="ImageContrastCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
