@@ -17,15 +17,25 @@
         android:padding="@dimen/_10sdp"
         tools:context=".AddActivity">
 
+        <!-- Photo -->
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/default_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck,VisualLintBounds" />
+
         <!-- Name -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_name"
             style="@style/editTextName"
-            android:hint="@string/name"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/iv_photo"
+            tools:ignore="VisualLintBounds">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -43,7 +53,8 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_name">
+            app:layout_constraintTop_toBottomOf="@+id/et_name"
+            tools:ignore="VisualLintBounds">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -52,6 +63,7 @@
                 tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/btn_save"

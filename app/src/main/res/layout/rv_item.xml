@@ -1,15 +1,15 @@
-    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="nama"
+            name="itemName"
             type="String" />
 
         <variable
-            name="sekolah"
+            name="itemSchool"
             type="String" />
 
     </data>
@@ -17,34 +17,48 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="@dimen/_20sdp">
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="@dimen/_10sdp">
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:contentDescription="@string/image"
+                android:src="@drawable/default_image"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:text="@{itemName}"
                 android:textSize="@dimen/_16ssp"
-                android:textStyle="bold|italic"
-                android:text="@{nama}"
+                android:textStyle="bold"
 
                 app:layout_constraintBottom_toTopOf="@id/school"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image"
                 tools:ignore="VisualLintBounds" />
 
             <TextView
                 android:id="@+id/school"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{sekolah}"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="@{itemSchool}"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -53,5 +67,7 @@
                 tools:ignore="VisualLintBounds" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
+
 </layout>

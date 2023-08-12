@@ -8,7 +8,7 @@ import com.zhalz.friendofmine.R
 import com.zhalz.friendofmine.database.FriendEntity
 import com.zhalz.friendofmine.databinding.RvItemBinding
 
-class RvAdapter(private val items: ArrayList<FriendEntity>, val onClickItem : (FriendEntity) -> Unit) :
+class RvAdapter(var items: ArrayList<FriendEntity>, val onClickItem : (FriendEntity) -> Unit) :
     RecyclerView.Adapter<RvAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -18,8 +18,8 @@ class RvAdapter(private val items: ArrayList<FriendEntity>, val onClickItem : (F
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.binding.nama = items[position].name
-        holder.binding.sekolah = items[position].school
+        holder.binding.itemName = items[position].name
+        holder.binding.itemSchool = items[position].school
 
         holder.itemView.setOnClickListener { onClickItem(items[position]) }
     }

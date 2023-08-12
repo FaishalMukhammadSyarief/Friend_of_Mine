@@ -11,4 +11,5 @@
     <string name="delete">Delete</string>
     <string name="image">image</string>
     <string name="search">Search</string>
+    <string name="add_image">Add Image</string>
 </resources>
