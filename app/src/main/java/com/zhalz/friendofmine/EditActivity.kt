@@ -40,6 +40,7 @@ class EditActivity : AppCompatActivity() {
     var name = ""
     var school = ""
     var bio =""
+    var idFriend = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +50,11 @@ class EditActivity : AppCompatActivity() {
 
         myDatabase = MyDatabase.getDatabase(this)
 
-        name = intent.getStringExtra("name2") ?: ""
-        school = intent.getStringExtra("school2") ?: ""
-        bio = intent.getStringExtra("bio2") ?: ""
+        name = intent.getStringExtra("name") ?: ""
+        school = intent.getStringExtra("school") ?: ""
+        bio = intent.getStringExtra("bio") ?: ""
+        photo = intent.getStringExtra("photo") ?: ""
+        idFriend = intent.getIntExtra("id", 0)
 
         photoFile = getPhotoFileUri(photoName)
 
@@ -188,6 +191,10 @@ class EditActivity : AppCompatActivity() {
     }
 
     fun saveUpdateFriend() {
+        dataFriend = FriendEntity(name, school, bio, photo).apply {
+            id = idFriend
+        }
+
         val adBuilder = AlertDialog.Builder(this)
 
         adBuilder.setTitle("Update Friend")

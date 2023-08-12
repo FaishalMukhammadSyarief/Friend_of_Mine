@@ -19,6 +19,7 @@
             android:id="@+id/iv_photoEdit"
             android:layout_width="match_parent"
             android:layout_height="400dp"
+            android:scaleType="centerCrop"
             android:background="@color/black"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +30,7 @@
             android:autofillHints="username"
             android:hint="@string/name"
             android:layout_marginTop="15dp"
-            android:text='@{access.name}'
+            android:text='@={access.name}'
             android:padding="@dimen/_10sdp"
             android:inputType="text"
             android:textColor="@color/black"
@@ -45,7 +46,7 @@
             android:id="@+id/et_school"
             android:autofillHints="username"
             android:hint="@string/school"
-            android:text='@{access.school}'
+            android:text='@={access.school}'
             android:padding="@dimen/_10sdp"
             android:inputType="text"
             android:textColor="@color/black"
@@ -75,7 +76,7 @@
             android:hint="@string/bio"
             android:inputType="text"
             android:padding="@dimen/_10sdp"
-            android:text='@{access.bio}'
+            android:text='@={access.bio}'
             android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"
