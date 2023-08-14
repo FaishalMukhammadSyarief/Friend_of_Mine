@@ -35,22 +35,20 @@ class DetailActivity : AppCompatActivity() {
 
         binding.access = this
 
-        binding.ivPhotoDetail.background = null
-
         myDatabase = MyDatabase.getDatabase(this)
 
         //get data
+        photo = intent.getStringExtra("photo") ?: ""
         name = intent.getStringExtra("name") ?: ""
         school = intent.getStringExtra("school") ?: ""
         bio = intent.getStringExtra("bio") ?: ""
-        photo = intent.getStringExtra("photo") ?: ""
         idFriend = intent.getIntExtra("id", 0)
 
         val bitmap = BitmapHelper().stringToBitmap(this, photo)
         Log.d("TestBitmap", "DATA_BITMAP : $bitmap")
         binding.ivPhotoDetail.setImageBitmap(bitmap)
 
-        dataFriend = FriendEntity(name, school, bio, photo).apply {
+        dataFriend = FriendEntity(photo, name, school, bio).apply {
             id = idFriend
         }
     }
@@ -102,5 +100,16 @@ class DetailActivity : AppCompatActivity() {
         }
         startActivity(toEdit)
         finish()
+
+        /*binding.ivPhotoDetail.isEnabled = true
+        binding.etName.isEnabled = true
+        binding.etSchool.isEnabled = true
+        binding.etBio.isEnabled = true
+
+        binding.btnEdit.isVisible = false
+        binding.btnEdit.isEnabled = false
+
+        binding.btnSave.isVisible = true*/
+
     }
 }
