@@ -56,6 +56,8 @@ class EditActivity : AppCompatActivity() {
         photo = intent.getStringExtra("photo") ?: ""
         idFriend = intent.getIntExtra("id", 0)
 
+        binding.ivPhotoEdit.background = null
+
         photoFile = getPhotoFileUri(photoName)
 
         val bitmap = BitmapHelper().stringToBitmap(this, photo)
@@ -178,7 +180,7 @@ class EditActivity : AppCompatActivity() {
 
     private fun openCamera() {
         val fileProvider =
-            FileProvider.getUriForFile(this, "com.shzh.fileprovider", photoFile)
+            FileProvider.getUriForFile(this, "com.zhalz.friendofmine.fileProvider", photoFile)
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
             putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
         }

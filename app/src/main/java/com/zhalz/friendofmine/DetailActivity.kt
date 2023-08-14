@@ -44,6 +44,8 @@ class DetailActivity : AppCompatActivity() {
         bio = intent.getStringExtra("bio") ?: ""
         idFriend = intent.getIntExtra("id", 0)
 
+        binding.ivPhotoDetail.background = null
+
         val bitmap = BitmapHelper().stringToBitmap(this, photo)
         Log.d("TestBitmap", "DATA_BITMAP : $bitmap")
         binding.ivPhotoDetail.setImageBitmap(bitmap)
