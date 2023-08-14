@@ -39,7 +39,7 @@ class EditActivity : AppCompatActivity() {
     var photo = ""
     var name = ""
     var school = ""
-    var bio = ""
+    var bio =""
     var idFriend = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,8 +47,6 @@ class EditActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_edit)
 
         binding.access = this
-
-        binding.ivPhotoEdit.background = null
 
         myDatabase = MyDatabase.getDatabase(this)
 
@@ -180,7 +178,7 @@ class EditActivity : AppCompatActivity() {
 
     private fun openCamera() {
         val fileProvider =
-            FileProvider.getUriForFile(this, "com.zhalz.friendofmine.fileProvider", photoFile)
+            FileProvider.getUriForFile(this, "com.shzh.fileprovider", photoFile)
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
             putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
         }
@@ -193,6 +191,10 @@ class EditActivity : AppCompatActivity() {
     }
 
     fun saveUpdateFriend() {
+        dataFriend = FriendEntity(name, school, bio, photo).apply {
+            id = idFriend
+        }
+
         val adBuilder = AlertDialog.Builder(this)
 
         adBuilder.setTitle("Update Friend")
