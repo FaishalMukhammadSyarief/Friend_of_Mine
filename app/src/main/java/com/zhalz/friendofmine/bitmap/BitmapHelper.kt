@@ -73,11 +73,11 @@ class BitmapHelper {
             BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.size)
         } catch (e: OutOfMemoryError) {
             e.printStackTrace()
-            val iss = context.resources.openRawResource(R.raw.error)
+            val iss = context.resources.openRawResource(R.raw.placeholder_avatar)
             BitmapFactory.decodeStream(iss)
         } catch (e: Exception) {
             e.printStackTrace()
-            val iss = context.resources.openRawResource(R.raw.error)
+            val iss = context.resources.openRawResource(R.raw.placeholder_avatar)
             BitmapFactory.decodeStream(iss)
         }
     }
