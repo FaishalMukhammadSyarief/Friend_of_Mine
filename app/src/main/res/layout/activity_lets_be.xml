@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -11,47 +12,51 @@
 
     </data>
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LetsBeActivity">
-
-    <View
-        android:id="@+id/view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/next" />
+        tools:context=".LetsBeActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="200dp"
-        android:textColor="@color/black"
-        android:text="@string/lets"
-        android:textStyle="bold"
-        android:textSize="@dimen/_25ssp"/>
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/next" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/class_industri"
-        android:padding="10dp"
-        android:gravity="center"
-        android:layout_marginTop="240dp"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_13ssp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:gravity="center"
+            android:text="@string/lets"
+            android:textColor="@color/md_theme_light_primary"
+            android:textSize="@dimen/_25ssp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="530dp"
-        android:backgroundTint="@color/white"
-        android:onClick='@{() -> access.toMain()}'
-        android:text="@string/lets_start"
-        android:textSize="@dimen/_13ssp"
-        android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:gravity="center"
+            android:text="@string/welcome_quote"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cornerRadius="@dimen/_5sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:onClick='@{() -> access.toMain()}'
+            android:text="@string/lets_start"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
 </layout>

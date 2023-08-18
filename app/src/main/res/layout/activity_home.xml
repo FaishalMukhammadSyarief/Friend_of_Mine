@@ -15,9 +15,9 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/backgroundParent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_7sdp"
         tools:context=".MainActivity">
 
         <com.google.android.material.card.MaterialCardView
@@ -27,7 +27,6 @@
             android:elevation="@dimen/_10sdp"
             app:cardCornerRadius="@dimen/_10sdp"
             app:cardUseCompatPadding="true"
-
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.SearchView

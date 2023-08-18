@@ -157,7 +157,7 @@ class AddActivity : AppCompatActivity() {
         builder.show()
     }
     private fun openCamera() {
-        val fileProvider = FileProvider.getUriForFile(this, "com.zhalz.fileprovider", photoFile)
+        val fileProvider = FileProvider.getUriForFile(this, "com.zhalz.friendofmine.fileProvider", photoFile)
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
             putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
         }

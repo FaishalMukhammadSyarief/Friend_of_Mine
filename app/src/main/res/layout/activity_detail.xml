@@ -12,6 +12,7 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        style="@style/backgroundParent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".AddActivity">
@@ -20,14 +21,12 @@
             android:id="@+id/appbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="@color/md_theme_light_primary">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/top_appbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                style="@style/customToolBar"
                 app:menu="@menu/detail_toolbar"
-                app:navigationIcon="@drawable/ic_back"
                 app:title="Detail Friend" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -46,11 +45,8 @@
                 <!-- Photo -->
                 <ImageView
                     android:id="@+id/iv_photoDetail"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_300sdp"
-                    android:background="@color/white"
+                    style="@style/imagePhoto"
                     android:contentDescription="@string/photo"
-                    android:scaleType="centerCrop"
                     tools:ignore="ImageContrastCheck,VisualLintBounds" />
 
                 <!-- Name -->

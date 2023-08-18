@@ -12,22 +12,21 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        style="@style/backgroundParent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".AddActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_layout"
+            style="@style/backgroundAppBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/top_appbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                style="@style/customToolBar"
                 app:menu="@menu/edit_toolbar"
-                app:navigationIcon="@drawable/ic_back"
                 app:title="Edit Friend" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -46,11 +45,8 @@
                 <!-- Photo -->
                 <ImageView
                     android:id="@+id/iv_photoEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_300sdp"
-                    android:background="@color/white"
+                    style="@style/imagePhoto"
                     android:contentDescription="@string/photo"
-                    android:scaleType="centerCrop"
                     tools:ignore="ImageContrastCheck,VisualLintBounds" />
 
                 <!-- Name -->
@@ -58,6 +54,7 @@
                     android:id="@+id/et_name"
                     style="@style/editTextName"
                     android:hint="@string/name">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -70,6 +67,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_school"
                     style="@style/editTextSchool">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -82,6 +80,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_bio"
                     style="@style/editTextBio">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
