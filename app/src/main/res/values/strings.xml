@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Friend of Mine</string>
 
-    <string name="lets">Lets be friend</string>
+    <string name="lets">Friend of Mine</string>
     <string name="class_industri">Kelas industri not only develop hard skills and soft skills, but we also help develop life skills according to your competence</string>
-    <string name="lets_start">Lets Start</string>
-    <string name="welcome_quote">“The greatest gift of life is friendship, and you should receive it.” - Hubert H. Humphrey</string>
-    <string name="welcome_button">Get Some Friends</string>
+<!--    <string name="welcome_quote">“The greatest gift of life is friendship, and you should receive it.” - Hubert H. Humphrey</string>-->
+    <string name="welcome_quote">“Manage your friends, so you\'ll know them better”</string>
+    <string name="welcome_button">Lets Start</string>
 
     <string name="fab">btn_add</string>
     <string name="edit">Edit</string>

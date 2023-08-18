@@ -25,25 +25,33 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
-            android:gravity="center"
+            android:layout_height="@dimen/_150sdp"
+            android:fontFamily="@font/handmade_farmhouse"
+            android:gravity="center_horizontal|bottom"
             android:text="@string/lets"
             android:textColor="@color/md_theme_light_primary"
-            android:textSize="@dimen/_25ssp"
+            android:textSize="@dimen/_40ssp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent" />
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/welcome_quote"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/md_theme_light_primary"
+            android:layout_marginBottom="@dimen/_25sdp"
+
+            android:textSize="@dimen/_12ssp"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+           />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button"
@@ -52,11 +60,12 @@
             app:cornerRadius="@dimen/_5sdp"
             android:layout_margin="@dimen/_5sdp"
             android:onClick='@{() -> access.toMain()}'
-            android:text="@string/lets_start"
+            android:text="@string/welcome_button"
             android:textSize="@dimen/_13ssp"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="VisualLintButtonSize" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
 </layout>

@@ -172,13 +172,8 @@ class AddActivity : AppCompatActivity() {
 
     fun saveNewFriend() {
 
-        if (name.isEmpty() || school.isEmpty() || bio.isEmpty() || photo.isEmpty()) {
+        if (name.isEmpty() || school.isEmpty() || bio.isEmpty()) {
             Toast.makeText(this, getString(R.string.msg_error), Toast.LENGTH_SHORT).show()
-
-            Log.d("CekForm", "PHOTO:$photo")
-            Log.d("CekForm", "NAME:$name")
-            Log.d("CekForm", "SCHOOL:$school")
-            Log.d("CekForm", "BIO:$bio")
         }
             val newFriend = FriendEntity(name, school, bio, photo)
 
