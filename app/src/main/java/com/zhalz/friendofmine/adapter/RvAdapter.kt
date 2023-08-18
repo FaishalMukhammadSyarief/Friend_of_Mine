@@ -9,7 +9,7 @@ import com.zhalz.friendofmine.database.FriendEntity
 import com.zhalz.friendofmine.databinding.ItemFriendBinding
 
 class RvAdapter(
-    private val items: ArrayList<FriendEntity>,
+    var items: ArrayList<FriendEntity>,
     private val onItemClick : (FriendData : FriendEntity) -> Unit
 ) :
     RecyclerView.Adapter<RvAdapter.ItemViewHolder>() {

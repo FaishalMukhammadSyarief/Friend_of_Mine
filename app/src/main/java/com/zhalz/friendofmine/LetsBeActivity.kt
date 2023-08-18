@@ -19,5 +19,6 @@ class LetsBeActivity : AppCompatActivity() {
     fun toMain() {
         val toMain = Intent(this, HomeActivity::class.java)
         startActivity(toMain)
+        finish()
     }
 }

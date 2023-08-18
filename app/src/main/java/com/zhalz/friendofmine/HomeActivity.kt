@@ -31,11 +31,12 @@ class HomeActivity : AppCompatActivity() {
         lifecycleScope.launch {
             myDatabase.friendDao().getAll().collect {
                 listFriend.clear()
-                binding.recycler.adapter?.notifyDataSetChanged()
+                binding.setAdapter?.notifyDataSetChanged()
                 listFriend.addAll(it)
-                binding.recycler.adapter?.notifyItemInserted(0)
+                binding.setAdapter?.notifyItemInserted(0)
             }
         }
+
         binding.setAdapter = RvAdapter(listFriend) { data ->
             val toDetail = Intent(this, DetailActivity::class.java).apply {
                 putExtra("photo", data.photo)
@@ -61,8 +62,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun filterList(query: String?) {
+        val filteredList = ArrayList<FriendEntity>()
         if (query != null) {
-            var filteredList = ArrayList<FriendEntity>()
 
             for (i in listFriend) {
                 if (i.name.lowercase(Locale.ROOT).contains(query)) {
