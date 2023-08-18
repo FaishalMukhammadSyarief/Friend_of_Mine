@@ -14,14 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
         app:cardCornerRadius="@dimen/_10sdp"
-        app:strokeWidth="@dimen/_1sdp"
+        app:strokeWidth="@dimen/_2sdp"
         app:strokeColor="@color/md_theme_light_primary"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/snow"
+            android:background="@color/md_theme_light_primary"
             android:orientation="vertical">
 
             <ImageView
@@ -41,7 +41,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="@dimen/_2sdp"
                 android:background="@color/md_theme_light_primary"
                 android:layout_marginBottom="@dimen/_5sdp"/>
 
@@ -51,14 +51,11 @@
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="@dimen/_8sdp"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:text="@{friendData.name}"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
-                android:drawableStart="@drawable/ic_person"
-                android:drawableTint="@color/md_theme_light_primary"
-                android:drawablePadding="@dimen/_5sdp"
 
                 app:layout_constraintBottom_toTopOf="@id/school"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,14 +68,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:text="@{friendData.school}"
-                android:textColor="@color/black"
-                android:drawableStart="@drawable/ic_school"
-                android:drawablePadding="@dimen/_5sdp"
-                android:drawableTint="@color/md_theme_light_primary"
+                android:textColor="@color/white"
+                android:textStyle="bold"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
