@@ -9,6 +9,8 @@
         <item name="counterMaxLength">30</item>
         <item name="endIconMode">clear_text</item>
         <item name="android:hint">@string/name</item>
+        <item name="android:layout_marginHorizontal">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
     </style>
 
     <style name="editTextSchool">
@@ -19,6 +21,7 @@
         <item name="counterMaxLength">30</item>
         <item name="endIconMode">clear_text</item>
         <item name="android:hint">@string/school</item>
+        <item name="android:layout_marginHorizontal">@dimen/_10sdp</item>
     </style>
 
     <style name="editTextBio">
@@ -27,6 +30,8 @@
         <item name="startIconDrawable">@drawable/ic_bio</item>
         <item name="endIconMode">clear_text</item>
         <item name="android:hint">@string/bio</item>
+        <item name="android:layout_marginHorizontal">@dimen/_10sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_10sdp</item>
     </style>
 
 </resources>

@@ -8,26 +8,40 @@
         <variable
             name="access"
             type="com.zhalz.friendofmine.EditActivity" />
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_10sdp"
         tools:context=".AddActivity">
 
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-
-            app:layout_constraintBottom_toTopOf="@id/btn_save"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/top_appbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="?attr/actionBarSize"
+                app:menu="@menu/edit_toolbar"
+                app:navigationIcon="@drawable/ic_back"
+                app:title="Edit Friend" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <!-- Photo -->
                 <ImageView
@@ -36,78 +50,49 @@
                     android:layout_height="@dimen/_300sdp"
                     android:background="@color/white"
                     android:contentDescription="@string/photo"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:scaleType="centerCrop"
                     tools:ignore="ImageContrastCheck,VisualLintBounds" />
 
                 <!-- Name -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_name"
                     style="@style/editTextName"
-                    android:hint="@string/name"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_photoEdit">
-
+                    android:hint="@string/name">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLength="30"
                         android:text="@={access.name}"
                         tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- School -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_school"
-                    style="@style/editTextSchool"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_name">
-
+                    style="@style/editTextSchool">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLength="30"
                         android:text="@={access.school}"
                         tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Bio -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_bio"
-                    style="@style/editTextBio"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_school">
-
+                    style="@style/editTextBio">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@={access.bio}"
                         tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
         </ScrollView>
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick='@{() -> access.saveUpdateFriend()}'
-            android:text="@string/save"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="VisualLintButtonSize" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

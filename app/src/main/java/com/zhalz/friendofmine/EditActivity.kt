@@ -19,7 +19,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
-import androidx.room.Database
 import com.zhalz.friendofmine.bitmap.BitmapHelper
 import com.zhalz.friendofmine.database.FriendEntity
 import com.zhalz.friendofmine.database.MyDatabase
@@ -64,6 +63,18 @@ class EditActivity : AppCompatActivity() {
 
         binding.ivPhotoEdit.setOnClickListener {
             selectImage()
+        }
+
+        binding.topAppbar.setNavigationOnClickListener{
+            back()
+        }
+
+        binding.topAppbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.save ->
+                    saveUpdateFriend()
+            }
+            true
         }
     }
 
@@ -215,5 +226,9 @@ class EditActivity : AppCompatActivity() {
         }
         adBuilder.create().show()
 
+    }
+
+    fun back(){
+        onBackPressedDispatcher.onBackPressed()
     }
 }

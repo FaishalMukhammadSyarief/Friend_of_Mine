@@ -51,6 +51,19 @@ class AddActivity : AppCompatActivity() {
         binding.ivPhotoAdd.setOnClickListener {
             selectImage()
         }
+
+        binding.topAppbar.setNavigationOnClickListener{
+            back()
+        }
+
+        binding.topAppbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.save ->
+                    saveNewFriend()
+            }
+            true
+        }
+
     }
 
     private fun getPhotoFileUri(fileName: String): File {
@@ -175,4 +188,9 @@ class AddActivity : AppCompatActivity() {
                 finish()
         }
     }
+
+    fun back(){
+        onBackPressedDispatcher.onBackPressed()
+    }
+
 }

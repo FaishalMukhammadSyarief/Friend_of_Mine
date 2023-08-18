@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.zhalz.friendofmine.bitmap.BitmapHelper
@@ -36,6 +35,21 @@ class DetailActivity : AppCompatActivity() {
         binding.access = this
 
         myDatabase = MyDatabase.getDatabase(this)
+
+        binding.topAppbar.setNavigationOnClickListener{
+            back()
+        }
+
+        binding.topAppbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.edit ->
+                    onEditClick()
+
+                R.id.delete ->
+                    onDeleteClick()
+            }
+            true
+        }
 
         //get data
         photo = intent.getStringExtra("photo") ?: ""
@@ -101,15 +115,9 @@ class DetailActivity : AppCompatActivity() {
         startActivity(toEdit)
         finish()
 
-        /*binding.ivPhotoDetail.isEnabled = true
-        binding.etName.isEnabled = true
-        binding.etSchool.isEnabled = true
-        binding.etBio.isEnabled = true
+    }
 
-        binding.btnEdit.isVisible = false
-        binding.btnEdit.isEnabled = false
-
-        binding.btnSave.isVisible = true*/
-
+    fun back(){
+        onBackPressedDispatcher.onBackPressed()
     }
 }
