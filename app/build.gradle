@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
-
 android {
     namespace 'com.zhalz.friendofmine'
     compileSdk 34
