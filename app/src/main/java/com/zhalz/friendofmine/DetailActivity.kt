@@ -26,7 +26,7 @@ class DetailActivity : AppCompatActivity() {
     var name = ""
     var school = ""
     var bio = ""
-    var idFriend = 0
+    private var idFriend = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +68,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     //delete
-    fun onDeleteClick() {
+    private fun onDeleteClick() {
         val adBuilder = AlertDialog.Builder(this)
 
         adBuilder.setTitle("Remove Friend")
@@ -91,20 +91,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     //edit
-    fun saveUpdateFriend() {
-        val updatedFriend = FriendEntity(name, school, bio, photo).apply {
-            id = idFriend
-        }
-
-        lifecycleScope.launch {
-            myDatabase.friendDao().update(updatedFriend)
-            Toast.makeText(this@DetailActivity, "Updated", Toast.LENGTH_SHORT).show()
-            finish()
-        }
-    }
-
-    //edit
-    fun onEditClick() {
+    private fun onEditClick() {
         val toEdit = Intent(this, EditActivity::class.java).apply {
             putExtra("name", name)
             putExtra("school", school)

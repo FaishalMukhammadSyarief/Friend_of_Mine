@@ -18,7 +18,7 @@
         style="@style/backgroundParent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".SplashActivity">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/sv_border"

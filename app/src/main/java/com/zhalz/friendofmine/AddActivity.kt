@@ -48,9 +48,6 @@ class AddActivity : AppCompatActivity() {
 
         myDatabase = MyDatabase.getDatabase(this)
 
-        binding.ivPhotoAdd.setOnClickListener {
-            selectImage()
-        }
 
         binding.topAppbar.setNavigationOnClickListener{
             back()
@@ -130,7 +127,7 @@ class AddActivity : AppCompatActivity() {
         }
     }
 
-    private fun selectImage() {
+    fun selectImage() {
         binding.ivPhotoAdd.setImageResource(0)
         val items = arrayOf<CharSequence>("Take Photo with Camera", "Choose from Gallery",
             "Cancel")
@@ -170,7 +167,7 @@ class AddActivity : AppCompatActivity() {
     }
 
 
-    fun saveNewFriend() {
+    private fun saveNewFriend() {
 
         if (name.isEmpty() || school.isEmpty() || bio.isEmpty()) {
             Toast.makeText(this, getString(R.string.msg_error), Toast.LENGTH_SHORT).show()
@@ -184,7 +181,7 @@ class AddActivity : AppCompatActivity() {
         }
     }
 
-    fun back(){
+    private fun back(){
         onBackPressedDispatcher.onBackPressed()
     }
 

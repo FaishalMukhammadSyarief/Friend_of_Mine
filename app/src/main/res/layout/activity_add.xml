@@ -27,7 +27,8 @@
                 android:id="@+id/top_appbar"
                 style="@style/customToolBar"
                 app:menu="@menu/edit_toolbar"
-                app:title="Add Friend" />
+                app:title="Add Friend"
+                />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -46,6 +47,7 @@
                 <ImageView
                     android:id="@+id/iv_photoAdd"
                     style="@style/imagePhoto"
+                    android:onClick="@{() -> access.selectImage()}"
                     android:contentDescription="@string/photo"
                     tools:ignore="ImageContrastCheck,VisualLintBounds" />
 

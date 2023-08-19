@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 
-class MainActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_splash)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this@MainActivity, LetsBeActivity::class.java))
+            startActivity(Intent(this@SplashActivity, WelcomeActivity::class.java))
             finish()
         }, 2000)
     }

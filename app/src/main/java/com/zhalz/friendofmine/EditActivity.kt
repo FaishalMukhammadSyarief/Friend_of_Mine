@@ -29,7 +29,7 @@ import java.io.File
 class EditActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditBinding
     private lateinit var myDatabase: MyDatabase
-    private var dataFriend : FriendEntity? = null
+    private var dataFriend: FriendEntity? = null
 
     private lateinit var photoFile: File
     private val photoName = "photo.jpg"
@@ -38,8 +38,8 @@ class EditActivity : AppCompatActivity() {
     var photo = ""
     var name = ""
     var school = ""
-    var bio =""
-    var idFriend = 0
+    var bio = ""
+    private var idFriend = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,46 +59,35 @@ class EditActivity : AppCompatActivity() {
 
         val bitmap = BitmapHelper().stringToBitmap(this, photo)
         Log.d("TestBitmap", "DATA_BITMAP : $bitmap")
+
         binding.ivPhotoEdit.setImageBitmap(bitmap)
 
-        binding.ivPhotoEdit.setOnClickListener {
-            selectImage()
-        }
-
-        binding.topAppbar.setNavigationOnClickListener{
+        binding.topAppbar.setNavigationOnClickListener {
             back()
         }
 
         binding.topAppbar.setOnMenuItemClickListener {
-            when(it.itemId) {
-                R.id.save ->
-                    saveUpdateFriend()
+            when (it.itemId) {
+                R.id.save -> saveUpdateFriend()
             }
             true
         }
     }
 
-    private fun getPhotoFileUri(fileName: String): File {
-        val mediaStorageDir = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), tag)
-        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdir()) {
-            Log.d(tag, "Failed to create directory")
-        }
-        return File(mediaStorageDir.path + File.separator + fileName)
-    }
-
+   //Permission
     private fun checkPermissionCamera(): Boolean {
         return ContextCompat.checkSelfPermission(
             this,
             android.Manifest.permission.CAMERA
         ) == PackageManager.PERMISSION_GRANTED
     }
-
     private fun checkPermissionGallery(): Boolean {
         return ContextCompat.checkSelfPermission(
             this,
             android.Manifest.permission.READ_EXTERNAL_STORAGE
         ) == PackageManager.PERMISSION_GRANTED
     }
+
 
     private fun requestPermissionCamera() {
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA), 100)
@@ -122,16 +111,24 @@ class EditActivity : AppCompatActivity() {
             if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
                 openCamera()
             } else {
-                Toast.makeText(this, "User tidak memberikan izin Camera", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.error_permission, Toast.LENGTH_SHORT).show()
             }
         } else if (requestCode == 110) {
             if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
                 openGallery()
             } else {
-                Toast.makeText(this, "User tidak memberikan izin Gallery", Toast.LENGTH_SHORT)
+                Toast.makeText(this, R.string.error_permission, Toast.LENGTH_SHORT)
                     .show()
             }
         }
+    }
+
+    private fun getPhotoFileUri(fileName: String): File {
+        val mediaStorageDir = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), tag)
+        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdir()) {
+            Log.d(tag, "Failed to create directory")
+        }
+        return File(mediaStorageDir.path + File.separator + fileName)
     }
 
     private var activityLauncherCamera =
@@ -158,7 +155,7 @@ class EditActivity : AppCompatActivity() {
             }
         }
 
-    private fun selectImage() {
+    fun selectImage() {
         binding.ivPhotoEdit.setImageResource(0)
         val items = arrayOf<CharSequence>(
             "Take Photo with Camera", "Choose from Gallery",
@@ -201,7 +198,8 @@ class EditActivity : AppCompatActivity() {
         activityLauncherGallery.launch(galleryIntent)
     }
 
-    fun saveUpdateFriend() {
+    //Edit RoomDatabase
+    private fun saveUpdateFriend() {
         dataFriend = FriendEntity(name, school, bio, photo).apply {
             id = idFriend
         }
@@ -228,7 +226,8 @@ class EditActivity : AppCompatActivity() {
 
     }
 
-    fun back(){
+    //Back Feature
+    private fun back() {
         onBackPressedDispatcher.onBackPressed()
     }
 }

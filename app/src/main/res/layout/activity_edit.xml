@@ -47,6 +47,7 @@
                     android:id="@+id/iv_photoEdit"
                     style="@style/imagePhoto"
                     android:contentDescription="@string/photo"
+                    android:onClick="@{() -> access.selectImage()}"
                     tools:ignore="ImageContrastCheck,VisualLintBounds" />
 
                 <!-- Name -->

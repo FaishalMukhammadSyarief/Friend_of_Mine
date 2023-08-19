@@ -19,4 +19,5 @@
     <string name="photo">Photo</string>
 
     <string name="msg_error">Fill Blank Form</string>
+    <string name="error_permission">Permission not Granted</string>
 </resources>

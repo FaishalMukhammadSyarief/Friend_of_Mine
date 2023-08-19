@@ -8,14 +8,14 @@
 
         <variable
             name="access"
-            type="com.zhalz.friendofmine.LetsBeActivity" />
+            type="com.zhalz.friendofmine.WelcomeActivity" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LetsBeActivity">
+        tools:context=".WelcomeActivity">
 
         <View
             android:id="@+id/view"

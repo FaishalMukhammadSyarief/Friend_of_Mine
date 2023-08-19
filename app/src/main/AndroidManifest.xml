@@ -32,10 +32,10 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".LetsBeActivity"
+            android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

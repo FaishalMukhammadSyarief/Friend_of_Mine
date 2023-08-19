@@ -10,7 +10,7 @@ import com.zhalz.friendofmine.databinding.ItemFriendBinding
 
 class RvAdapter(
     var items: ArrayList<FriendEntity>,
-    private val onItemClick : (FriendData : FriendEntity) -> Unit
+    private val onItemClick : (friendData : FriendEntity) -> Unit
 ) :
     RecyclerView.Adapter<RvAdapter.ItemViewHolder>() {
 
@@ -30,7 +30,7 @@ class RvAdapter(
         return items.size
     }
 
-    class ItemViewHolder(var itemFriendBinding: ItemFriendBinding): RecyclerView.ViewHolder(itemFriendBinding.root){
+    class ItemViewHolder(private var itemFriendBinding: ItemFriendBinding): RecyclerView.ViewHolder(itemFriendBinding.root){
         fun bind(friendData: FriendEntity?){
             itemFriendBinding.friendData = friendData
             itemFriendBinding.executePendingBindings()
